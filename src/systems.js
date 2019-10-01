@@ -12,4 +12,16 @@ const MoveFinger = (entities, { touches }) => {
 	return entities;
 };
 
-export { MoveFinger };
+const PressFinger = (entities, { touches }) => {
+	touches.filter(t => t.type === "press").forEach(t => {
+		console.log("test")
+		let finger = entities[t.id];
+		if (finger && finger.position) {
+			finger.position = [t.event.pageX, t.event.pageY];
+		}
+	});
+
+	return entities;
+};
+
+export { MoveFinger, PressFinger };

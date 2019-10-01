@@ -2,17 +2,17 @@ import React, { PureComponent } from "react";
 import { AppRegistry, StyleSheet, StatusBar } from "react-native";
 import { GameEngine } from "react-native-game-engine";
 import { Finger } from "./renderers";
-import { MoveFinger } from "./systems";
+import { MoveFinger, PressFinger } from "./systems";
 
 export default class BestGameEver extends PureComponent {
 	render() {
 		return (
 			<GameEngine
 			style={styles.container}
-			systems={[MoveFinger]}
+			systems={[MoveFinger, PressFinger]}
 			entities={{
-				1: { position: [150, 300], renderer: <Finger />},
-				2: { position: [200, 300], renderer: <Finger />},
+				0: { position: [150, 300], renderer: <Finger />},
+				1: { position: [200, 300], renderer: <Finger />},
 			}}>
 				<StatusBar hidden={false} />
 			</GameEngine>
